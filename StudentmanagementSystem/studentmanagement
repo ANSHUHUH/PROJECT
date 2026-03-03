@@ -1,0 +1,77 @@
+package studentmanagement;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student{
+	String name;
+	int rollno;
+	double marks;
+	
+	Student(String name,int rollno,double marks){
+		this.name = name;
+		this.rollno = rollno;
+		this.marks = marks;
+	}
+}
+public class studentmanagement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   ArrayList<Student> students  = new ArrayList<>();
+   Scanner sc = new Scanner(System.in);
+   
+   while(true) {
+	   System.out.println("===========STUDENT MANAGEMENT SYSTEM============");
+	   System.out.println("1. add student");
+	   System.out.println("2. view students");
+	   System.out.println("3. exit");
+	   System.out.println("===========STUDENT MANAGEMENT SYSTEM============");
+	   
+	   int choice = sc.nextInt();
+	       switch(choice) {
+	       case 1:{
+	    	   System.out.println("===========STUDENT MANAGEMENT SYSTEM============");
+	    	   System.out.println("enter roll no: ");
+	    	   int roll = sc.nextInt();
+	    	   sc.nextLine();
+	    	   
+	    	   System.out.println("enter name : ");
+	    	   String name = sc.nextLine();
+	    	   
+	    	   System.out.println("enter marks : ");
+	    	   double marks = sc.nextDouble();
+	    	   
+	    	   Student s = new Student(name,roll, marks);
+	    	   students.add(s);
+	    	   
+	    	   System.out.println("!!!STUDENT ADDED SUCESSFULLY!!!");
+	    	   break;
+	       }
+	       case 2:{
+	    	   if(students.size() == 0) {
+	    		   System.out.println("no students found!!!");
+	    	   }
+	    	   else {
+	    		   for( Student s : students){
+	    			   System.out.println("===========STUDENT MANAGEMENT SYSTEM============");
+	    			   System.out.println("roll no : "+s.rollno);
+	    			   System.out.println("name : "+s.name);
+	    			   System.out.println("marks : "+s.marks);
+	    			   System.out.println("===========STUDENT MANAGEMENT SYSTEM============");
+	    			   }
+	    	   }
+	    	   break;
+	       }
+	       case 3:{
+	    	    System.out.print("exit program......");
+	    	    return;
+	    	   
+	       }
+	       default:{
+	    	   System.out.println("invalid choice!!!");
+	       }
+	       }
+   }
+	}
+
+}
